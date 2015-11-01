@@ -1,0 +1,246 @@
+@import "_bootstrap.less";
+@import "_variables.less";
+@import "_mixins.less";
+@import "_fonts";
+
+
+html {
+margin: 0 auto ;
+width: 850px;
+
+}
+
+* {
+.box-sizing(border-box);
+}
+
+/* vendor prefix Mixins here eliminates the need to rewrite them */
+.box-sizing(@boxmodel){
+-webkit-box-sizing: @boxmodel;
+-moz-box-sizing: @boxmodel;
+box-sizing: @boxmodel;
+}
+
+/*specify document's font-family, font size, & line height*/
+body{
+font-family: @primaryFont;
+font-size: @baseFontSize;
+line-height: @lineHeight;
+}
+/*Turn the color of headings to Brown */
+h1, h2, h3, h4, h5, h6 {
+color: @secondaryColor;
+}
+/*Add style for the horizontal line */
+hr {
+ border: 0;
+ 
+}
+/* adding color for linear gradient on <hr> tags*/
+hr{
+border: 0;
+height: 1px;
+background-image: -webkit-linear-gradient(left,
+fade(@black, 0%), fade(@black, 15%), fade(@black, 0%));
+background-image: -moz-linear-gradient(left,
+fade(@black, 0%), fade(@black, 15%), fade(@black, 0%));
+background-image: -ms-linear-gradient(left,
+fade(@black, 0%), fade(@black, 15%), fade(@black, 0%));
+background-image: -o-linear-gradient(left,
+fade(@black, 0%), fade(@black, 15%), fade(@black, 0%));
+background-image: linear-gradient(left,
+fade(@black, 0%), fade(@black, 15%), fade(@black, 0%));
+margin: (@baseLength * 4) 0;
+}
+
+ .kudosplush {
+input, textarea {
+ &focus {
+ @borderColor: darken(@secondaryColor, 10%);
+ @inputShadow: inset 0 1px fade(@black, 7%), 0 0 8px fade(@borderColor, 50%);
+ border-color: @borderColor;
+ .box-shadow(@inputShadow);
+  }
+ }
+}
+
+input{
+.placeholder(darken(@white, 10%));
+}
+
+/*style the button(s) on page*/
+.kudosplush {
+	.bth {
+/*.buttonBackground(@secondaryColor, darken(@secondaryColor, 10%), @white, 0 1px 1px fade(@white, 75%));*/
+	/*.border-radius(@borderRadiusSmall); */
+	.text-shadow(1px, 1px, 0, fade(@black, 30%));
+	
+	}
+}
+
+/*Style the header class */
+.header{
+background-color: darken(@white, 2%);
+padding: (@baseLength * 2) 0;
+.brand {
+	.ir;
+	width: 60px;
+	height: 50px;
+	padding-left: 40px;
+	float: left;
+	border-radius: 10px;
+background: url('../images/logo.png') no-repeat;
+}
+}
+
+.footer{
+color: lighten(@black, 70%);
+background-color: darken(@white, 2%);
+padding: (@baseLength * 5) 0;
+margin-top: @baseLength * 3;
+ul{
+margin: 0;
+ }
+ li{
+  display: inline;
+  margin-right: @baseLength;
+  }
+  a{ 
+  	color: lighten(@black, 70%);
+  	&hover {
+  		color: lighten(@black, 30%);
+  		text-decoration: none;
+  		}
+  	}
+
+.social-links{
+  	text-align: right;
+  	li{
+  		margin-right: 0;
+  		}
+  		
+  	 a {
+  		 display: inline-block;
+  		 width: 36px;
+  		 height: 40px;
+  		 border-radius: 25px;
+  		 .ir;
+ 		 }
+  			 
+  	 .apple a, .android a, .amazon a {
+  	background-image: url('../images/sprites.png');
+  	background-repeat: no-repeat;
+  		 	
+  	}
+  	.apple a{
+  		background-position: -76px -68px;
+  		 &hover {
+  			background-position: -117px -205;
+  			}
+  		}
+   	.android a{
+  		background-position: -191px -75px;
+  		&hover {
+  		background-position: -249px -205px;
+  		}
+  	}
+  .amazon a{
+  background-position: -380px -78px;
+  &hover {
+  background-position: -443px -209px;
+  		}
+  	} 			 		
+ }
+} 		
+.copyright{
+	text-align: right;
+  	display: block;
+ }
+ 
+/*Style the hero welcome section */
+.hero-unit {
+background-color: inherit;
+padding: (@baseLength * 3) 0;
+color: @primaryColor;
+margin-bottom: 0;
+ p {
+  font-size: @baseFontSize * 2.8;
+  line-height: @lineHeight / 1.8;
+  }
+  .price{
+  	font-weight: bold;
+  	color: @secondaryColor;
+  	}
+}
+
+.content{
+ .cta{
+ 	margin-top: @baseLength * 4;
+ 	.copy-text {
+ 	    color: @secondaryColor;
+ 	    font-size: @baseFontSize * 1.5;
+ 	   }
+ 	}	
+}
+
+/*Remove margin-right from the gallery class */
+.gallery{
+ figure {
+ 	margin-right: 0;
+ 	}	
+}
+
+/*add style to the testimonial class */
+.testimonial {
+	font-size: @baseLength * 3;
+	padding-bottom: @baseLength * 2;
+	color: lighten(@black, 50%);
+	text-align: center;
+}
+
+/*style the subscribe input button */
+.subscribe-form{
+margin-bottom: @baseLength * 2;
+text-align: center;
+input{
+ width: @baseLength * 28;	
+   }
+ input, button {
+ 	height: @baseLength * 5;
+ 	padding: @baseLength (@baseLength * 2);
+ 	margin-bottom: 0;
+ 	}
+}
+
+/* resize the <small> tags */
+h1{
+	/*Add whitespace between the title and header */
+	margin: (@baseLength * 4) 0 (@baseLength * 2);
+small {
+	font-size: 0.75em;
+	}
+}
+
+/* Add style to the contact page */
+.contact{
+.contact-form{
+  input {
+  	height: (@baseLength * 4);
+  	}	
+  	textarea {
+  		min-height: (@baseLength * 8);
+  		}
+   }
+   /*add some white whitespace*/
+ .contact-form .address{
+ padding: (@baseLength * 2) (@baseLength * 1.5);
+ margin-bottom: @baseLength * 2;
+ }
+/*Add borderline in between, to separate these two section */
+.address{
+ border-right: 1px solid darken(@white, 5%);
+ 	}
+}
+
+
+ 

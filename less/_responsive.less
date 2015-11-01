@@ -1,0 +1,162 @@
+@import "_variables.less";
+@import "_mixins.less";
+@import "responsive-utilities.less";
+@import "_bootstrap.less";
+@import "buttons.less";
+
+// Embeds responsive
+
+.embed-responsive {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+
+  .embed-responsive-item,
+  iframe,
+  embed,
+  object,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    border: 0;
+  }
+}
+
+// Modifier class for 16:9 aspect ratio
+.embed-responsive-16by9 {
+  padding-bottom: 56.25%;
+}
+
+// Modifier class for 4:3 aspect ratio
+.embed-responsive-4by3 {
+  padding-bottom: 75%;
+}
+@import "navs.less";
+@import "navbar.less";
+
+/*Enhance for viewport size of 767 or less */
+@media (max-width: 767px){
+	/*Remove whitespace */
+	body{
+	 padding-left: 0;
+	 padding-right: 0;
+	}
+	/*Let's add the padding to the container class instead */
+	.container{
+		padding-left: @baseLength * 2;
+		padding-right: @baseLength * 2;
+	}
+	/*Remove padding and the margin in the logo & navbar */
+	.header{
+	.navbar-inner{
+		margin: 0;
+		padding: 0;
+		.brand{
+			margin: 0;
+			padding: 0;
+			}
+		}
+		.navbar{
+		.btn-navbar {
+			padding: (@baseLength * 1) (@baseLength * 2);
+			@navShadow: inset 0 1px 0 fade(@white, 10%), 0 1px 0 fade(@white, 7%);
+			.box-shadow(@navShadow);
+			/*.buttonBackground(@primaryColor, darken(@primaryColor, 5%));*/
+			.text-shadow(0, -1px, 0, fade(@black, 25%));
+			}	
+		}
+	}
+	/* Stack sections as screens get smaller*/
+	.content{
+	 h1{
+	 	 small{
+	 	 	display: block;
+	 	 	}
+	 	}	
+	 	/*Align call to action to center */
+	 	.cta{
+	 	  text-align: center;	
+	 	}
+	 	.gallery{
+	 	 figure{
+	 	 	display: inline-block;
+	 	 	float: left;
+	 	 	width: 50%;
+	 	 	text-align: center;
+	 	 	}
+	 	 	img{
+	 	 	max-width: 95%;
+	 	 	}
+	 	}
+	}
+	/* Align everithing within the footer to the center */
+	.footer{
+	 text-align: center;
+	 .copyright{
+	   display: inline;
+	   }
+	   .social-links{
+	    text-align: center;
+	   }
+	}
+	
+}//end media query 767px
+
+/*Enhance for fiewport size of 767 or less */
+
+@media (max-width: 480px){
+	.content{
+	 .gallery{
+	   figure{
+	    display: block;
+	    float: none;
+	    width: 100px;
+	    text-align: center;
+	    img{ 
+	    	max-width: 100px
+	      }
+	    } //figure	
+	  }	//gallery
+	  .subscribe-form{
+	  	input{
+	  		width: 100%;
+	  		margin-bottom: @baseLength;
+	  		}
+	  		button{
+	  		margin-top: @baseLength;
+	  		width: 100%;
+	  		} //button
+	  	} //subscribe-form
+	  	.about{
+	  	 img{
+	  	   margin-bottom: @baseLength * 2;
+	  	  }	
+	  	}
+	}//content
+	
+	/* footer section stack everything in there to larger values*/
+	
+	.footer{
+	 nav{ li, a {
+	 	display: block;
+	 	}
+	 	a {
+	 	 padding: @baseLength;
+	 	 width: 100%;
+	 	 background-color: darken(@white, 3%);
+	 	 margin-bottom: @baseLength * 0.5;
+	 	 /*.border-radius(@borderRadiusSmall);*/
+	 	 &focus{
+	 	   background-color: darken(@white, 7%);
+	 	   color: @white;
+	 	  }
+	 	}
+	  }
+	}
+}//media query
